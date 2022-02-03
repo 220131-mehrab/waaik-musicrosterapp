@@ -1,23 +1,22 @@
 #!/bin/bash
 
 FILE=topsongs0.csv
-cat $FILE | cut -d "," -f 2,3,4 | sort
+
 
 usage(){
 	echo "$0 <command> [<args>]"
 	echo "Commands" 
-	echo "  list          list all types"
-	echo "                num count total number"
+	echo "  listRoster          list of desired role and names"
+	echo "  numRoles              num count total number of roles"
 }
 
-list(){
-	cat $FILE | cut -d "," -f 2,3,4 | sort
+listRoster(){
+	cat $FILE | cut -d "," -f 2,3,4 | sort | grep "$1" | uniq
 }
 
-num(){
-	cat $FILE | cut -d "," -f 2,3,4 | sort | grep "1" | uniq -c
+numRoles(){
+	cat $FILE | cut -d "," -f 4 | sort | grep "$1" | uniq -c 
 }
-
 if [[$# -eq 0]] ; then
 	usage
 	exit 1
