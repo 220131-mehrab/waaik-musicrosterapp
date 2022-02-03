@@ -5,4 +5,21 @@ cat $FILE | cut -d "," -f 2,3,4 | sort
 
 usage(){
 	echo "$0 <command> [<args>]"
-	echo 
+	echo "Commands" 
+	echo "  list          list all types"
+	echo "                num count total number"
+}
+
+list(){
+	cat $FILE | cut -d "," -f 2,3,4 | sort
+}
+
+num(){
+	cat $FILE | cut -d "," -f 2,3,4 | sort | grep "1" | uniq -c
+}
+
+if [[$# -eq 0]] ; then
+	usage
+	exit 1
+fi
+"$@"
