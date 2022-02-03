@@ -1,0 +1,5 @@
+#!/bin/bash
+
+FILE=topsongs0.csv
+cat $FILE | cut -d "," -f 2,3,4 | sort
+
