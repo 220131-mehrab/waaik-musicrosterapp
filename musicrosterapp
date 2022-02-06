@@ -1,24 +1,26 @@
 #!/bin/bash
-
+  
 FILE=/Users/keythageniuz/musicrosterapp/topsongs0.csv
 
 
 usage(){
-	echo "$0 <command> [<args>]"
-	echo "Commands" 
-	echo "  listRoster <role>         list of desired role and names"
-	echo "  numRoles   <role>           num count total number of roles"
+        echo "$0 <command> [<args>]"
+        echo "Commands"
+        echo "  listRoster <role>         list of desired role and names"
+        echo "  numRoles   <role>           num count total number of roles"
+        echo " <role> = singer, musician, producer    roles available"
 }
+usage
 
 listRoster(){
-	cat $FILE | cut -d "," -f 2,3,4 | sort | grep "$1" | uniq
+        cat $FILE | cut -d "," -f 2,3,4 | sort | grep "$1" | uniq
 }
 
 numRoles(){
-	cat $FILE | cut -d "," -f 4 | sort | grep "$1" | uniq -c 
+        cat $FILE | cut -d "," -f 4 | sort | grep "$1" | uniq -c
 }
-if [[ $# -eq 0 ]] ; then
-	usage
-	exit 1
-fi
+
+
+
 "$@"
+
