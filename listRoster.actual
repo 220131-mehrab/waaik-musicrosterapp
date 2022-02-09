@@ -1,5 +1,0 @@
-./musicrosterapp <command> [<args>]
-Commands
-  listRoster <role>         list of desired role and names
-  numRoles   <role>           num count total number of roles
- <role> = singer, musician, producer    roles available
